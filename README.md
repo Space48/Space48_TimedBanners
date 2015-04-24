@@ -1,33 +1,33 @@
-Space48 Timed Banners
+#Space48 Timed Banners
 =====================
 
-Description
+##Description
 -----------
 Timed banners allow a banner image to be used along side a countdown timer, the module works by overlaying the countdown timer over the banner image, the countdown timer is in real time and dynamically counts down the time to an end date. The countdown is displayed in the format of 'Day Hour Minutes Seconds'
 
 
 
-Requirements
+##Requirements
 ------------
 - PHP >= 5.2.0
 - Mage_Core
 
 
-Compatibility
+##Compatibility
 -------------
 Magento >= 1.4
 
-Tested
+##Tested
 -------------
 Enterprise 1.13
 
-Installation Instructions
+##Installation Instructions
 -------------------------
 To install the module copy the app and skin folder to the root directory of the site.
 
 A banner needs to be created that allows an area on the image where the timer can be overlayed this will provide a blank area on the image for 'Days, Hours, Minutes, Seconds'
 
-Setup:
+###Setup:
 Go to the magento admin of the site.
 To add the timed banner, go to CMS -> Timed Banners Management.
 Click 'Add Banner'
@@ -50,11 +50,11 @@ to the header file the timed banner will be visible in the header.
 
 
 
-Uninstallation
+##Uninstallation
 --------------
 
 
 
-Copyright
+##Copyright
 ---------
 (c) 2015 Space48
