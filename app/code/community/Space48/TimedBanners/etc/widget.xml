@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<widgets>
+    <timed_banner type="space48timer/banner_widget" translate="name description" module="space48timer">
+        <name>Timed banners</name>
+        <description>Add banner with countdown</description>
+        <parameters>
+            <active>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Active</label>
+                <type>select</type>
+                <source_model>space48timer/banner_options_active</source_model>
+            </active>
+            <nonactive>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Non active</label>
+                <type>select</type>
+                <source_model>space48timer/banner_options_nonactive</source_model>
+            </nonactive>
+        </parameters>
+    </timed_banner>
+</widgets>

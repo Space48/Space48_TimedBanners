@@ -1,0 +1,75 @@
+<?php $active = $this->getActiveBanner() ?>
+<?php $nonactive = $this->getNonactiveBanner() ?>
+<script>
+    jQuery(function($) {
+        var $timer       = $(".banner-countdown .countdown-timer"),
+            currentDate = new Date(),
+            startDate   = new Date("<?php echo date("F d, Y H:i:s", strtotime($active->getStartDate())); ?>"),
+            endDate     = new Date("<?php echo date("F d, Y H:i:s", strtotime('+1 day ' . $active->getEndDate())); ?>");
+
+        createImg();
+        addLinkToImg(); // Wrap the inactive (not countdown) banner images in a link to /offers.
+
+        // show active banner
+        if(startDate < currentDate && endDate > currentDate) {
+            putActiveBanner();
+            $timer.countdown({
+                until: endDate,
+                format: 'DHMS',
+                layout: '<ul>{d<}<li class="countdown_amount">{dn}</li>{d>}{h<}<li class="countdown_amount">{hn}</li>{h>}' +
+                    '{m<}<li class="countdown_amount">{mn}</li>{m>}{s<}<li class="countdown_amount">{sn}</li>{s>}</ul>',
+                alwaysExpire: true,
+                onExpiry: function() {
+                    removeTimer();
+                }
+            });
+        }
+        else {
+            putNonactiveBanner();
+        }
+    });
+
+    function removeTimer() {
+        jQuery(".banner-countdown .countdown-timer").remove();
+    }
+    function putActiveBanner() {
+        var bannerPath = "<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $active->getBackgroundImage() ?>";
+        var bannerAlt = "<?php echo $active->getName() ?>";
+        jQuery(".timer-container .space48timer img").attr({
+            "src": bannerPath,
+            "alt": bannerAlt,
+            "class": 'active banner-bg'
+        });
+    }
+
+    function putNonactiveBanner() {
+        var bannerPath = "<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $nonactive->getBackgroundImage() ?>";
+        var bannerAlt = "<?php echo $nonactive->getName() ?>";
+        jQuery(".timer-container .space48timer img").attr({
+            "src": bannerPath,
+            "alt": bannerAlt,
+            "class": 'inactive banner-bg'
+        });
+    }
+
+    function createImg() {
+        jQuery(".timer-container .space48timer").append("<img />");
+    }
+
+    // Wrap the inactive (not countdown) banner images in a link to /offers.
+
+    function addLinkToImg() {
+        jQuery('.timer-container .space48timer img').wrap('<a href="/offers"></a>');
+    }
+
+</script>
+<div class="widget widget-banner space48timer">
+    <ul class="widget-banner-list">
+        <li class="banner banner-10">
+            <div class="banner-countdown" style="position: static">
+                <div class="countdown-timer"></div>
+            </div>
+        </li>
+    </ul>
+</div>
+

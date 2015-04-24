@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <space48timer_adminhtml_timer_index>
+        <reference name="content">
+            <block type="space48timer/adminhtml_timer" name="space48timer" />
+        </reference>
+    </space48timer_adminhtml_timer_index>
+    <space48timer_adminhtml_timer_edit>
+        <reference name="head">
+            <action method="addJs"><script>space48/timer/edit.js</script></action>
+         </reference>
+    </space48timer_adminhtml_timer_edit>
+</layout>
