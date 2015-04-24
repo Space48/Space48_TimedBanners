@@ -28,10 +28,10 @@ To install the module copy the app and skin folder to the root directory of the 
 A banner needs to be created that allows an area on the image where the timer can be overlayed this will provide a blank area on the image for 'Days, Hours, Minutes, Seconds'
 
 ###Setup:
-Go to the magento admin of the site.
-To add the timed banner, go to CMS -> Timed Banners Management.
-Click 'Add Banner'
-Give the banner a name, upload the banner image, set to active and enter the period from the start to the end date. The end date will be used as the end time for the countdown.
+*Go to the magento admin of the site.
+*To add the timed banner, go to CMS -> Timed Banners Management.
+*Click 'Add Banner'
+*Give the banner a name, upload the banner image, set to active and enter the period from the start to the end date. The end date will be used as the end time for the countdown.
 
 Finally the output code need to be added to the template file where you want the banner to be visible for example adding the following code:
 ```php
